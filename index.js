@@ -1,6 +1,7 @@
-const usersApiEndpoint = "https://jsonplaceholder.typicode.com/users";
+const apiUrl = "https://jsonplaceholder.typicode.com/users";
+
 const getUsers = async() => {
-    const result = await fetch(usersApiEndpoint);
+    const result = await fetch(apiUrl);
     return result.json();
 }
 
@@ -13,7 +14,7 @@ const populateDom = async() => {
         users.forEach(user => {
             document.getElementsByClassName("row mt-5")[0].innerHTML += `
                     <div class="col-lg-4 col-md-6 my-2">
-                        <a class="card border-0 shadow-sm">
+                        <div class="card border-0 shadow-sm">
                             <div class="card-body">
                                 <div class="border-left mt-2">
                                     <div class="ml-2 mt-2">
@@ -23,7 +24,7 @@ const populateDom = async() => {
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
             `
         })
@@ -37,7 +38,7 @@ window.addEventListener('load', () => {
 });
 
 const loadPosts = async(id) => {
-    const result = await fetch(`https://jsonplaceholder.typicode.com/users/${id}/posts`);
+    const result = await fetch(`${apiUrl}/${id}/posts`);
     const posts = await result.json();
     return posts;
 }
@@ -52,7 +53,7 @@ const loadOnDom = (posts) => {
                 <div class="border-left mt-2">
                     <div class="ml-2 mt-2">
                         <h5 class="text-black-50 m-0">${post.title}</h5>
-                        <p class="text-black-50 mt-2"><small>${post.body}</small></p>
+                        <p class="text-black-20 mt-2"><small>${post.body}</small></p>
                     </div>
                 </div>
             </div>
