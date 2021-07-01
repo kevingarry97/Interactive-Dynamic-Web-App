@@ -1,4 +1,4 @@
-# JS PROJECT
+# HTML, CSS, JS PROJECT
 
 I've build a simple web application with HTML5, CSS, Javascript
 
